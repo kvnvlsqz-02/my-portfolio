@@ -104,3 +104,35 @@ a, button { cursor: url("images/pokeball.png") 4 4, pointer; }
   aspect-ratio: auto;
   height: auto;
 }
+
+
+/* Hero load animation */
+.hero h2 { font-size: clamp(2.5rem, 9vw, 4.5rem); letter-spacing: -.04em; }
+
+.hero .line {
+  display: block;
+  overflow: hidden;          /* hides the text until it slides up */
+  padding-bottom: .12em;     /* keeps letters like g and y from being clipped */
+  margin-bottom: -.12em;
+}
+.hero .line > span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: rise .8s cubic-bezier(.2, .7, .2, 1) forwards;
+  animation-delay: calc(.25s + var(--i) * .15s);   /* delay between lines */
+}
+.hero .lede, .hero .avatar {
+  opacity: 0;
+  animation: fade .8s ease forwards;
+}
+.hero .avatar { animation-delay: 0s; }
+.hero .lede   { animation-delay: .8s; }              /* appears after the heading */
+
+@keyframes rise { to { transform: translateY(0); } }
+@keyframes fade { to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .line > span, .hero .lede, .hero .avatar {
+    animation: none; opacity: 1; transform: none;
+  }
+}
