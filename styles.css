@@ -107,7 +107,7 @@ a, button { cursor: url("images/pokeball.png") 4 4, pointer; }
 
 
 /* Hero load animation */
-.hero h2 { font-size: clamp(2.5rem, 9vw, 4.5rem); letter-spacing: -.04em; }
+.hero h2 {letter-spacing: -.04em; }
 
 .hero .line {
   display: block;
